@@ -34,6 +34,7 @@ namespace UI
         {
 
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UI", Version = "v1" });
@@ -69,6 +70,12 @@ namespace UI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
 
             app.UseAuthorization();
 

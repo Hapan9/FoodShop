@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\DAL.csproj": {}
+    "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\DAL.csproj": {
+    "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\DAL.csproj",
+        "projectUniqueName": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\Hapan9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\obj\\",
+        "projectPath": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/DAL.csproj",
+        "packagesPath": "/Users/andrey/.nuget/packages/",
+        "outputPath": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hapan9\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/andrey/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }
