@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3oyT5DUTNtUH5mmPVgBF1W/+aegI0aGYI14y6nh9zSWGsFdGpYe30oqe5M58JJCpy9NDmRT8gSfW5Y6/cJArdQ==",
+  "dgSpecHash": "rOPtO/BFhirauKZHKe+sHesNu7PCBhMaeQSZ5s8oupaoqjj2XvJG0CveP8s1hHqRvTgiHus+eAp3046++sbnVw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hapan9\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Hapan9\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

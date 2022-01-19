@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\UI\\UI.csproj": {}
+    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\UI\\UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\BLL\\BLL.csproj": {
+    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\BLL\\BLL.csproj",
+        "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\Hapan9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\BLL\\obj\\",
+        "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hapan9\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\DAL\\DAL.csproj"
+              "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\DAL\\DAL.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\DAL\\DAL.csproj": {
+    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\Hapan9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hapan9\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -132,14 +132,14 @@
         }
       }
     },
-    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\UI\\UI.csproj": {
+    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\UI\\UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\UI\\UI.csproj",
+        "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\UI\\UI.csproj",
         "projectName": "UI",
-        "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\UI\\UI.csproj",
+        "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\UI\\UI.csproj",
         "packagesPath": "C:\\Users\\Hapan9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\UI\\obj\\",
+        "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\UI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hapan9\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -156,8 +156,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\BLL\\BLL.csproj": {
-                "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\BLL\\BLL.csproj"
+              "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\BLL\\BLL.csproj": {
+                "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\BLL\\BLL.csproj"
               }
             }
           }

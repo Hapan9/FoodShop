@@ -5707,11 +5707,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\DAL\\DAL.csproj",
+      "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\DAL\\DAL.csproj",
+      "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\Hapan9\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\DAL\\obj\\",
+      "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hapan9\\AppData\\Roaming\\NuGet\\NuGet.Config",

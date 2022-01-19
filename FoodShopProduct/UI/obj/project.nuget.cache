@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ROquH504nBm4aLGtkXVUkGriOZuM4aGtPdkuMKkOs9H2gj15yvc82/asEdQaV8oW4cZIKHtyZO7my7oCHTh/Uw==",
+  "dgSpecHash": "kE2ARc13X7GM7HqoF1pI22mzjQsNPp10+lmTz1LQykJwvuvukkUDPP+tdRPKs+0slNy+SbL7PnHd41ieGOuapg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop-Product\\FoodShopProduct\\UI\\UI.csproj",
+  "projectFilePath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopProduct\\UI\\UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hapan9\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Hapan9\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
