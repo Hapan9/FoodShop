@@ -35,6 +35,7 @@ namespace UI
 
             #endregion
 
+            services.AddCors();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductInfoRepository, ProductInfoRepository>();
             services.AddSingleton(_ => AutoMapperProfile.InitializeAutoMapper().CreateMapper());
@@ -67,6 +68,12 @@ namespace UI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
 
             app.UseAuthorization();
 
