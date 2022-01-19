@@ -37,7 +37,10 @@ namespace BLL.Implementation
 
         public async Task Create(UserDto item)
         {
-            await _userRepository.Create(_mapper.Map<User>(item));
+            var hash = new Hashing();
+            await _userRepository.Create(_mapper.Map<User>(item,
+                opts => opts.AfterMap((_,
+                    u) => u.Password = hash.GetHashString(u.Password))));
             await _userRepository.Save();
         }
 
@@ -46,9 +49,15 @@ namespace BLL.Implementation
             if (await _userRepository.Get(id) == null)
                 throw new ArgumentException();
 
+            var hash = new Hashing();
+
             await _userRepository.Update(_mapper.Map<User>(item,
                 opts => opts.AfterMap((_,
-                    u) => u.Id = id)));
+                    u) =>
+                {
+                    u.Id = id;
+                    u.Password = hash.GetHashString(u.Password);
+                })));
 
             await _userRepository.Save();
         }
