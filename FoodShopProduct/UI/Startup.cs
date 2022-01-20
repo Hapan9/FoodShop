@@ -16,12 +16,12 @@ namespace UI
 {
     public class Startup
     {
-        private readonly IWebHostEnvironment _currentEnvironment;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public Startup(IConfiguration configuration, IWebHostEnvironment currentEnvironment)
+        public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
             Configuration = configuration;
-            _currentEnvironment = currentEnvironment;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IConfiguration Configuration { get; }
@@ -47,13 +47,13 @@ namespace UI
 
         private void AddDb(IServiceCollection services)
         {
-            //if (_currentEnvironment.IsEnvironment("Testing"))
-            //    services.AddDbContext<ProductContext>(options =>
-            //        options.UseInMemoryDatabase("TestDB"));
-            //else
-            services.AddDbContext<ProductContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            if (_webHostEnvironment.IsEnvironment("Testing"))
+                services.AddDbContext<ProductContext>(options =>
+                    options.UseInMemoryDatabase("TestProductDB"));
+            else
+                services.AddDbContext<ProductContext>(options =>
+                    options.UseSqlServer(
+                        Configuration.GetConnectionString("DefaultConnection")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -68,7 +68,7 @@ namespace UI
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            
+
             app.UseCors(x => x
                 .AllowAnyMethod()
                 .AllowAnyHeader()

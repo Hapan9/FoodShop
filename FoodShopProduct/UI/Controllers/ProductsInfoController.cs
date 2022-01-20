@@ -102,7 +102,7 @@ namespace UI.Controllers
                 return BadRequest(ex);
             }
         }
-        
+
         [HttpGet("Names")]
         public async Task<IActionResult> GetNames()
         {

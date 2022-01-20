@@ -34,6 +34,7 @@
       "UI/1.0.0": {
         "dependencies": {
           "BLL": "1.0.0",
+          "Microsoft.EntityFrameworkCore.InMemory": "5.0.13",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -381,7 +382,7 @@
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.1.0"
           },
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.pdb": {
             "rid": "win-arm",
@@ -391,7 +392,7 @@
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.1.0"
           },
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb": {
             "rid": "win-arm64",
@@ -401,7 +402,7 @@
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.1.0"
           },
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb": {
             "rid": "win-x64",
@@ -411,7 +412,7 @@
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.1.0"
           },
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb": {
             "rid": "win-x86",
@@ -453,6 +454,20 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/5.0.13": {},
+      "Microsoft.EntityFrameworkCore.InMemory/5.0.13": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.13"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "5.0.13.0",
+            "fileVersion": "5.0.1321.56013"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/5.0.13": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.13",
@@ -3125,6 +3140,13 @@
       "sha512": "sha512-torTg+dQC/vOlFI5FZsRmOAA5pKtr8cJNJ5SWsl0RVYmhb5I7s/V3T1NsIzSqJTYzGBssHl5mFbiBODeBdQpnQ==",
       "path": "microsoft.entityframeworkcore.analyzers/5.0.13",
       "hashPath": "microsoft.entityframeworkcore.analyzers.5.0.13.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/5.0.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yjF1UJiX6dDABiN15cyXs17r4OE9k6KH7iwODVejU1Ot+H49itWmvGOv/gm2UQn2qlZJcBI2A7KvqMZ9gz0A/A==",
+      "path": "microsoft.entityframeworkcore.inmemory/5.0.13",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.5.0.13.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/5.0.13": {
       "type": "package",

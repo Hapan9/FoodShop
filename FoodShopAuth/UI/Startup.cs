@@ -1,44 +1,35 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BLL;
 using BLL.Implementation;
 using BLL.Interfaces;
 using DAL;
 using DAL.Interfaces;
 using DAL.Repositories;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace UI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
             Configuration = configuration;
+            WebHostEnvironment = webHostEnvironment;
         }
 
         public IConfiguration Configuration { get; }
-        
+        public IWebHostEnvironment WebHostEnvironment { get; set; }
+
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddCors();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "UI", Version = "v1" });
-            });
+            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "UI", Version = "v1"}); });
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
@@ -49,13 +40,13 @@ namespace UI
 
         private void AddDb(IServiceCollection services)
         {
-            //if (_currentEnvironment.IsEnvironment("Testing"))
-            //    services.AddDbContext<ProductContext>(options =>
-            //        options.UseInMemoryDatabase("TestDB"));
-            //else
-            services.AddDbContext<UserContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            if (WebHostEnvironment.IsEnvironment("Testing"))
+                services.AddDbContext<UserContext>(options =>
+                    options.UseInMemoryDatabase("TestAuthDB"));
+            else
+                services.AddDbContext<UserContext>(options =>
+                    options.UseSqlServer(
+                        Configuration.GetConnectionString("DefaultConnection")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -70,19 +61,16 @@ namespace UI
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            
+
             app.UseCors(x => x
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true) // allow any origin
-                .AllowCredentials()); // allow credentials
+                .SetIsOriginAllowed(_ => true)
+                .AllowCredentials());
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

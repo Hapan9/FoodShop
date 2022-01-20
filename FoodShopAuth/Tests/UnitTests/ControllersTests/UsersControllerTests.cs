@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using BLL.Dto;
 using BLL.Interfaces;
@@ -9,18 +6,15 @@ using Moq;
 using UI.Controllers;
 using Xunit;
 
-namespace Tests.UnitTests.ControllerTests
+namespace Tests.UnitTests.ControllersTests
 {
     public class UsersControllerTests
     {
-        private FakeData _fakeData;
         private readonly UsersController _usersController;
         private readonly Mock<IUserService> _userServiceMock;
 
         public UsersControllerTests()
         {
-            _fakeData = new FakeData();
-
             _userServiceMock = new Mock<IUserService>();
             _usersController = new UsersController(_userServiceMock.Object);
         }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using BLL.Dto;
@@ -11,7 +9,7 @@ using DAL.Models;
 
 namespace BLL.Implementation
 {
-    public class UserService: IUserService
+    public class UserService : IUserService
     {
         private readonly IMapper _mapper;
         private readonly IUserRepository _userRepository;
@@ -38,9 +36,12 @@ namespace BLL.Implementation
         public async Task Create(UserDto item)
         {
             var hash = new Hashing();
-            await _userRepository.Create(_mapper.Map<User>(item,
+            var user = _mapper.Map<User>(item,
                 opts => opts.AfterMap((_,
-                    u) => u.Password = hash.GetHashString(u.Password))));
+                    u) => u.Password = hash.GetHashString(u.Password)));
+
+            await _userRepository.Create(user);
+
             await _userRepository.Save();
         }
 
@@ -51,13 +52,14 @@ namespace BLL.Implementation
 
             var hash = new Hashing();
 
-            await _userRepository.Update(_mapper.Map<User>(item,
+            var user = _mapper.Map<User>(item,
                 opts => opts.AfterMap((_,
                     u) =>
                 {
                     u.Id = id;
                     u.Password = hash.GetHashString(u.Password);
-                })));
+                }));
+            await _userRepository.Update(user);
 
             await _userRepository.Save();
         }

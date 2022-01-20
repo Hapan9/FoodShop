@@ -1,33 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/andrey/Desktop/FoodShop/FoodShopAuth/BLL/BLL.csproj": {}
+    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "/Users/andrey/Desktop/FoodShop/FoodShopAuth/BLL/BLL.csproj": {
+    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/BLL/BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/BLL/BLL.csproj",
-        "packagesPath": "/Users/andrey/.nuget/packages/",
-        "outputPath": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/BLL/obj/",
+        "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\Hapan9\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/andrey/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Hapan9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/DAL.csproj": {
-                "projectPath": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/DAL.csproj"
+              "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\DAL.csproj"
               }
             }
           }
@@ -62,26 +64,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/DAL.csproj": {
+    "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/DAL.csproj",
-        "packagesPath": "/Users/andrey/.nuget/packages/",
-        "outputPath": "/Users/andrey/Desktop/FoodShop/FoodShopAuth/DAL/obj/",
+        "projectPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\Hapan9\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hapan9\\Documents\\GitHub\\FoodShop\\FoodShopAuth\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/andrey/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Hapan9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -124,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

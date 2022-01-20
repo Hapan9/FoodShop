@@ -1,0 +1,16 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=72d0ce28_002Dcde6_002D4b65_002D8ca2_002D11b7dcb1ab82/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ProductsControllerTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::AC8AC8AE-523A-4293-AAA6-98978931672C::net5.0::Tests.UnitTests.ControllersTests.ProductsControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AC8AC8AE-523A-4293-AAA6-98978931672C::net5.0::Tests.UnitTests.ControllersTests.ProductsInfoControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AC8AC8AE-523A-4293-AAA6-98978931672C::net5.0::Tests.UnitTests.ServicesTests.ProductServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AC8AC8AE-523A-4293-AAA6-98978931672C::net5.0::Tests.UnitTests.ServicesTests.ProductInfoServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AC8AC8AE-523A-4293-AAA6-98978931672C::net5.0::Tests.IntegrationTests.ProductsControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AC8AC8AE-523A-4293-AAA6-98978931672C::net5.0::Tests.IntegrationTests.ProductsInfoControllerTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=88c2b90e_002Df493_002D4219_002Da86b_002D9f97ae29553a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ProductsControllerTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::AC8AC8AE-523A-4293-AAA6-98978931672C::net5.0::Tests.UnitTests.ControllersTests.ProductsControllerTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

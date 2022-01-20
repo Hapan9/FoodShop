@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoFixture;
 using DAL.Models;
 
 namespace Tests
 {
-    class FakeData
+    internal class FakeData
     {
-        public List<User> Users { get; }
-
-        public Fixture Fixture { get; }
-
         public FakeData()
         {
             Fixture = new Fixture();
@@ -21,5 +14,9 @@ namespace Tests
             Users = Fixture.CreateMany<User>(10)
                 .ToList();
         }
+
+        public List<User> Users { get; }
+
+        public Fixture Fixture { get; }
     }
 }

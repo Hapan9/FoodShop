@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using BLL.Dto;
 using DAL.Models;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace BLL
 {
