@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using BLL;
 using BLL.Implementation;
 using BLL.Interfaces;
@@ -33,6 +34,7 @@ namespace UI
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserScoreService, UserScoreService>();
             services.AddSingleton(_ => AutoMapperProfile.InitializeAutoMapper().CreateMapper());
 
             AddDb(services);

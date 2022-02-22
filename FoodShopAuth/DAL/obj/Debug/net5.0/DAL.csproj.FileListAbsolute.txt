@@ -21,3 +21,4 @@ C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\DAL\obj\Debug\net5.0\DAL.
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\DAL\obj\Debug\net5.0\DAL.dll
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\DAL\obj\Debug\net5.0\ref\DAL.dll
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\DAL\obj\Debug\net5.0\DAL.pdb
+C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\DAL\obj\Debug\net5.0\DAL.csproj.AssemblyReference.cache

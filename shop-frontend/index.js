@@ -1,4 +1,4 @@
-let url = 'https://localhost:5001/api/';
+let url = 'https://localhost:44383/api/';
 
 readAllItems();
 readAllCategories();

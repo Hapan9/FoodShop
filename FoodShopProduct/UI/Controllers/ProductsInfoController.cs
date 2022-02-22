@@ -13,9 +13,9 @@ namespace UI.Controllers
     {
         private readonly IProductInfoService _productInfoService;
 
-        public ProductsInfoController(IProductInfoService productInfoService)
+        public ProductsInfoController(IProductInfoService infoService)
         {
-            _productInfoService = productInfoService;
+            _productInfoService = infoService;
         }
 
         [HttpGet("{id}")]
@@ -45,11 +45,11 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductInfoDto productInfoDto)
+        public async Task<IActionResult> Create([FromBody] ProductInfoDto infoDto)
         {
             try
             {
-                await _productInfoService.Create(productInfoDto);
+                await _productInfoService.Create(infoDto);
                 return Ok();
             }
             catch (Exception ex)
@@ -59,11 +59,11 @@ namespace UI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] ProductInfoDto productInfoDto)
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] ProductInfoDto infoDto)
         {
             try
             {
-                await _productInfoService.Update(id, productInfoDto);
+                await _productInfoService.Update(id, infoDto);
                 return Ok();
             }
             catch (Exception ex)

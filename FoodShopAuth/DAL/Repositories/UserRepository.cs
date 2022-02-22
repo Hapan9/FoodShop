@@ -39,8 +39,7 @@ namespace DAL.Repositories
             if (await _db.Users.CountAsync(u => u.Id == item.Id) == 0)
                 return;
 
-            _db.Users.Remove(await _db.Users.FirstAsync(u => u.Id == item.Id));
-            await _db.Users.AddAsync(item);
+            _db.Users.Update(item);
         }
 
         public async Task Delete(Guid id)

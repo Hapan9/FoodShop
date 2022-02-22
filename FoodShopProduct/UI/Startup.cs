@@ -41,6 +41,8 @@ namespace UI
             services.AddSingleton(_ => AutoMapperProfile.InitializeAutoMapper().CreateMapper());
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IProductInfoService, ProductInfoService>();
+            services.AddTransient<IProductScoreRepository, ProductScoreRepository>();
+            services.AddTransient<IProductScoreService, ProductScoreService>();
 
             AddDb(services);
         }

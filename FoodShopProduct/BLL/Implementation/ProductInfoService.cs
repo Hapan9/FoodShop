@@ -14,9 +14,9 @@ namespace BLL.Implementation
         private readonly IMapper _mapper;
         private readonly IProductInfoRepository _productInfoRepository;
 
-        public ProductInfoService(IProductInfoRepository productInfoRepository, IMapper mapper)
+        public ProductInfoService(IProductInfoRepository infoRepository, IMapper mapper)
         {
-            _productInfoRepository = productInfoRepository;
+            _productInfoRepository = infoRepository;
             _mapper = mapper;
         }
 

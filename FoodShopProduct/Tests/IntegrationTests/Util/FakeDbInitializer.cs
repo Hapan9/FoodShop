@@ -4,13 +4,13 @@ namespace Tests.IntegrationTests.Util
 {
     internal class FakeDbInitializer
     {
-        public static void Initialize(ProductContext productContext)
+        public static void Initialize(ProductContext context)
         {
             var fake = new FakeData();
 
-            productContext.Products.AddRange(fake.Products);
-            productContext.ProductInfos.AddRange(fake.ProductsInfo);
-            productContext.SaveChanges();
+            context.Products.AddRange(fake.Products);
+            context.ProductInfos.AddRange(fake.ProductsInfo);
+            context.SaveChanges();
         }
     }
 }

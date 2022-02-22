@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using BLL.Dto;
 using BLL.Interfaces;
@@ -12,17 +13,17 @@ namespace UI.Controllers
     {
         private readonly IProductService _productService;
 
-        public ProductsController(IProductService productService)
+        public ProductsController(IProductService service)
         {
-            _productService = productService;
+            _productService = service;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:guid}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
             try
             {
-                return new JsonResult(await _productService.Get(id));
+                return new JsonResult(await _productService.GetWithScore(id));
             }
             catch (Exception ex)
             {
@@ -35,7 +36,7 @@ namespace UI.Controllers
         {
             try
             {
-                return new JsonResult(await _productService.GetAll());
+                return new JsonResult(await _productService.GetAllWithScore());
             }
             catch (Exception ex)
             {
@@ -44,11 +45,11 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductDto productDto)
+        public async Task<IActionResult> Create([FromBody] ProductDto dto)
         {
             try
             {
-                await _productService.Create(productDto);
+                await _productService.Create(dto);
                 return Ok();
             }
             catch (Exception ex)
@@ -57,12 +58,12 @@ namespace UI.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] ProductDto productDto)
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] ProductDto dto)
         {
             try
             {
-                await _productService.Update(id, productDto);
+                await _productService.Update(id, dto);
                 return Ok();
             }
             catch (Exception ex)
@@ -71,7 +72,7 @@ namespace UI.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             try

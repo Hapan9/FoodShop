@@ -13,5 +13,7 @@ namespace BLL.Interfaces
         Task Create(ProductDto item);
         Task Update(Guid id, ProductDto item);
         Task Delete(Guid id);
+        Task<Product> GetWithScore(Guid id);
+        Task<IEnumerable<Product>> GetAllWithScore();
     }
 }

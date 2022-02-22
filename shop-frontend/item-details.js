@@ -1,4 +1,4 @@
-let url = 'https://localhost:5001/api/';
+let url = 'https://localhost:44383/api/';
 
 let documentUrl = document.URL;
 let itemId = documentUrl.split('?')[1].split('=')[1];

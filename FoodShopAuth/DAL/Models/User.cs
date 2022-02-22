@@ -10,6 +10,7 @@ namespace DAL.Models
         public string Password { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public float? ScoreCoefficient { get; set; }
         public Role Role { get; set; }
     }
 }

@@ -13,6 +13,9 @@ namespace BLL
 
             CreateMap<ProductInfo, ProductInfoDto>()
                 .ReverseMap();
+
+            CreateMap<ProductScore, ProductScoreDto>()
+                .ReverseMap();
         }
 
         public static MapperConfiguration InitializeAutoMapper()
