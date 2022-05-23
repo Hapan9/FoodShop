@@ -5,7 +5,6 @@ using DAL;
 using DAL.Interfaces;
 using DAL.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -139,13 +138,9 @@ namespace UI
             app.UseEndpoints(endpoints =>
             {
                 if (!env.IsProduction())
-                {
                     endpoints.MapControllers().WithMetadata(new CustomAllowAnonymousAttribute());
-                }
                 else
-                {
                     endpoints.MapControllers();
-                }
             });
         }
     }

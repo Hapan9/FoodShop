@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using BLL.Dto;
@@ -11,7 +10,7 @@ using DAL.Models;
 
 namespace BLL.Implementation
 {
-    public class ProductScoreService: IProductScoreService
+    public class ProductScoreService : IProductScoreService
     {
         private readonly IMapper _mapper;
         private readonly IProductScoreRepository _productScoreRepository;

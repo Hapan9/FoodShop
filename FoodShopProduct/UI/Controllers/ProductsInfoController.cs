@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using BLL.Dto;
 using BLL.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers

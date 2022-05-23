@@ -28,7 +28,8 @@ namespace Tests.UnitTests.ServicesTests
 
             var scoreServiceMock = new Mock<IProductScoreService>();
 
-            _productService = new ProductService(_productRepositoryMock.Object, mapperMock.Object, scoreServiceMock.Object);
+            _productService =
+                new ProductService(_productRepositoryMock.Object, mapperMock.Object, scoreServiceMock.Object);
         }
 
         [Fact]

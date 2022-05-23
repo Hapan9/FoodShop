@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
-using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using BLL.Dto;
@@ -15,16 +13,17 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BLL.Implementation
 {
-    public class AuthorizationService: IAuthorizationService
+    public class AuthorizationService : IAuthorizationService
     {
-        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IUserRepository _userRepository;
 
         public AuthorizationService(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _mapper = mapper;
         }
+
         public async Task<string> Login(UserDto user)
         {
             var hash = new Hashing();
@@ -44,10 +43,10 @@ namespace BLL.Implementation
                 notBefore: now,
                 claims: new List<Claim>
                 {
-                    new Claim(ClaimsIdentity.DefaultNameClaimType, userEntity.Name),
-                    new Claim("surname", userEntity.Surname),
-                    new Claim("login", userEntity.Login),
-                    new Claim(ClaimsIdentity.DefaultRoleClaimType, userEntity.Role.ToString())
+                    new(ClaimsIdentity.DefaultNameClaimType, userEntity.Name),
+                    new("surname", userEntity.Surname),
+                    new("login", userEntity.Login),
+                    new(ClaimsIdentity.DefaultRoleClaimType, userEntity.Role.ToString())
                 },
                 expires: now.Add(TimeSpan.FromMinutes(AuthOptions.Lifetime)),
                 signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(),

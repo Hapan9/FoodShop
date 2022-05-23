@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using BLL;
 using BLL.Implementation;
 using BLL.Interfaces;
@@ -101,18 +100,14 @@ namespace UI
 
             app.UseAuthentication();
             app.UseAuthorization();
-            
+
 
             app.UseEndpoints(endpoints =>
             {
                 if (!env.IsProduction())
-                {
                     endpoints.MapControllers().WithMetadata(new AllowAnonymousAttribute());
-                }
                 else
-                {
                     endpoints.MapControllers();
-                }
             });
         }
     }

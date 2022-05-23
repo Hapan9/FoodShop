@@ -17,10 +17,10 @@ namespace BLL.Implementation
 {
     public class ProductService : IProductService
     {
+        private readonly HttpClient _client;
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
         private readonly IProductScoreService _productScoreService;
-        private readonly HttpClient _client;
 
         public ProductService(IProductRepository repository, IMapper mapper, IProductScoreService scoreService)
         {
@@ -73,31 +73,24 @@ namespace BLL.Implementation
         public async Task<Product> GetWithScore(Guid id)
         {
             var productWithScore = await _productRepository.Get(id);
-            if (productWithScore == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if (productWithScore == null) throw new ArgumentNullException();
 
             var score = 0f;
             var productScores = (await _productScoreService.GetAll(id)).ToList();
             var userIds = productScores.Select(ps => ps.UserId).Distinct().ToList();
             var scores = await GetScores(userIds);
-            if (scores == null)
-            {
-                return productWithScore;
-            }
+            if (scores == null) return productWithScore;
 
             productWithScore.ProductScores = null;
 
 
             for (var i = 0; i < userIds.Count(); i++)
-            {
-                score += productScores.Where(ps => ps.UserId == userIds[i]).Select(ps => (int)ps.Score * 25).Sum() * scores[i] / 100;
-            }
+                score += productScores.Where(ps => ps.UserId == userIds[i]).Select(ps => (int) ps.Score * 25).Sum() *
+                    scores[i] / 100;
 
             score /= productScores.Count;
 
-            productWithScore.Score = (int)score;
+            productWithScore.Score = (int) score;
 
             return productWithScore;
         }
@@ -105,29 +98,25 @@ namespace BLL.Implementation
         public async Task<IEnumerable<Product>> GetAllWithScore()
         {
             var productsWithScore = (await _productRepository.GetAll()).ToList();
-            
+
             foreach (var productWithScore in productsWithScore)
             {
                 var score = 0f;
                 var productScores = (await _productScoreService.GetAll(productWithScore.Id)).ToList();
                 var userIds = productScores.Select(ps => ps.UserId).Distinct().ToList();
                 var scores = await GetScores(userIds);
-                if (scores == null)
-                {
-                    continue;
-                }
+                if (scores == null) continue;
                 productWithScore.ProductScores = null;
-                if(scores.Count == 0)
+                if (scores.Count == 0)
                     continue;
 
                 for (var i = 0; i < userIds.Count(); i++)
-                {
-                    score += productScores.Where(ps => ps.UserId == userIds[i]).Select(ps => ((int)ps.Score + 1) * 20).Sum() * scores[i] / 100;
-                }
+                    score += productScores.Where(ps => ps.UserId == userIds[i]).Select(ps => ((int) ps.Score + 1) * 20)
+                        .Sum() * scores[i] / 100;
 
                 score /= productScores.Count;
 
-                productWithScore.Score = (int)score;
+                productWithScore.Score = (int) score;
             }
 
             return productsWithScore;
@@ -137,14 +126,12 @@ namespace BLL.Implementation
         {
             try
             {
-
-                var httpContent = new StringContent(JsonConvert.SerializeObject(ids), Encoding.UTF8, "application/json");
+                var httpContent =
+                    new StringContent(JsonConvert.SerializeObject(ids), Encoding.UTF8, "application/json");
                 var response = await _client.PostAsync("https://localhost:44303/api/UserScore", httpContent);
 
                 if (response.StatusCode == HttpStatusCode.OK)
-                {
                     return await response.Content.ReadFromJsonAsync<List<float>>();
-                }
 
                 return null;
             }

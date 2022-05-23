@@ -9,7 +9,7 @@ namespace DAL
         {
             Database.EnsureCreated();
         }
-            
+
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductInfo> ProductInfos { get; set; }
         public DbSet<ProductScore> ProductScores { get; set; }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using BLL.Dto;
 using BLL.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -12,17 +11,18 @@ namespace UI.Controllers
     public class AuthorizationController : ControllerBase
     {
         private readonly IAuthorizationService _authorizationService;
+
         public AuthorizationController(IAuthorizationService authorizationService)
         {
             _authorizationService = authorizationService;
         }
 
         [HttpPost("Login")]
-        public IActionResult Login([FromBody]AuthModel auth)
+        public IActionResult Login([FromBody] AuthModel auth)
         {
             try
             {
-                var userDto = new UserDto()
+                var userDto = new UserDto
                 {
                     Login = auth.Login,
                     Password = auth.Password
@@ -42,7 +42,7 @@ namespace UI.Controllers
         }
 
         [HttpPost("Validate")]
-        public  IActionResult ValidationToken([FromBody] JwtModel token)
+        public IActionResult ValidationToken([FromBody] JwtModel token)
         {
             try
             {

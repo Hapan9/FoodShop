@@ -58,7 +58,6 @@ namespace DAL.Repositories
 
         public async Task<User> GetByLoginPassword(User item)
         {
-
             return await _db.Users.FirstOrDefaultAsync(u =>
                 string.Equals(u.Login, item.Login) && string.Equals(u.Password, item.Password));
         }

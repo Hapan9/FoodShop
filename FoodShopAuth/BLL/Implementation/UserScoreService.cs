@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text;
 using System.Threading.Tasks;
 using BLL.Interfaces;
 using DAL.Interfaces;
 
 namespace BLL.Implementation
 {
-    public class UserScoreService: IUserScoreService
+    public class UserScoreService : IUserScoreService
     {
-        private readonly IUserRepository _userRepository;
-        private readonly HttpClient _client; private readonly Dictionary<int, float> _scoreRate = new Dictionary<int, float>()
+        private readonly HttpClient _client;
+
+        private readonly Dictionary<int, float> _scoreRate = new()
         {
             {0, 0.1f},
             {1, 0.4f},
@@ -21,11 +21,15 @@ namespace BLL.Implementation
             {3, 1f},
             {4, 0.8f}
         };
+
+        private readonly IUserRepository _userRepository;
+
         public UserScoreService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
             _client = new HttpClient();
         }
+
         public async Task<float> GetUserScore(Guid id)
         {
             var user = await _userRepository.Get(id);
@@ -61,7 +65,7 @@ namespace BLL.Implementation
                     await _userRepository.Update(user);
                     saveAction = true;
                 }
-                
+
                 scores.Add((float) user.ScoreCoefficient);
             }
 
@@ -84,8 +88,8 @@ namespace BLL.Implementation
 
             if (scores == null)
             {
-                if(user.ScoreCoefficient != null)
-                    return (float)user.ScoreCoefficient;
+                if (user.ScoreCoefficient != null)
+                    return (float) user.ScoreCoefficient;
 
                 user.ScoreCoefficient = 100;
             }
@@ -105,9 +109,7 @@ namespace BLL.Implementation
             await _userRepository.Update(user);
             await _userRepository.Save();
 
-            return (float)user.ScoreCoefficient;
+            return (float) user.ScoreCoefficient;
         }
-
-        
     }
 }

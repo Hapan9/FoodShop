@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
 using DAL.Models;
@@ -9,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories
 {
-    public class ProductScoreRepository: IProductScoreRepository
+    public class ProductScoreRepository : IProductScoreRepository
     {
         private readonly ProductContext _db;
 
