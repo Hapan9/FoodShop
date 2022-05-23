@@ -32,7 +32,7 @@ namespace Tests.IntegrationTests
             var response = await _fixture.Client.GetAsync("api/Products");
             response.EnsureSuccessStatusCode();
             var models =
-                JsonConvert.DeserializeObject<ICollection<Product>>(await response.Content.ReadAsStringAsync());
+                JsonConvert.DeserializeObject<IEnumerable<Product>>(await response.Content.ReadAsStringAsync());
 
             // Assert
             Assert.NotEmpty(models);

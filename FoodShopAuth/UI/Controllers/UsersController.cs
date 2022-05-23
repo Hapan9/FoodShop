@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BLL.Dto;
 using BLL.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
@@ -17,7 +18,8 @@ namespace UI.Controllers
             _userService = userService;
         }
 
-        [HttpGet("{id}")]
+        [Authorize(Roles = "Administrator")]
+        [HttpGet("{id:guid}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
             try
@@ -30,6 +32,7 @@ namespace UI.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -43,12 +46,13 @@ namespace UI.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] UserDto productDto)
+        public async Task<IActionResult> Create([FromBody] UserDto userDto)
         {
             try
             {
-                await _userService.Create(productDto);
+                await _userService.Create(userDto);
                 return Ok();
             }
             catch (Exception ex)
@@ -57,12 +61,13 @@ namespace UI.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UserDto productDto)
+        [Authorize(Roles = "Administrator")]
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UserDto userDto)
         {
             try
             {
-                await _userService.Update(id, productDto);
+                await _userService.Update(id, userDto);
                 return Ok();
             }
             catch (Exception ex)
@@ -71,7 +76,8 @@ namespace UI.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
+        [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             try

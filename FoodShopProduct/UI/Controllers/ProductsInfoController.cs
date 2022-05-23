@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BLL.Dto;
 using BLL.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
@@ -18,7 +19,7 @@ namespace UI.Controllers
             _productInfoService = infoService;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:guid}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)
         {
             try
@@ -44,6 +45,7 @@ namespace UI.Controllers
             }
         }
 
+        [CustomAuthorize("Administrator")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] ProductInfoDto infoDto)
         {
@@ -58,7 +60,8 @@ namespace UI.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [CustomAuthorize("Administrator")]
+        [HttpPut("{id:guid}")]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] ProductInfoDto infoDto)
         {
             try
@@ -72,7 +75,8 @@ namespace UI.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [CustomAuthorize("Administrator")]
+        [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             try

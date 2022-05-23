@@ -152,3 +152,4 @@ C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\Tests\obj\Debug\net5.0\Te
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\Tests\bin\Debug\net5.0\Acheve.TestHost.dll
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\Tests\bin\Debug\net5.0\Microsoft.AspNetCore.TestHost.dll
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\Tests\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\Tests\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

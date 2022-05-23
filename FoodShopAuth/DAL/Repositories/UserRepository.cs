@@ -39,7 +39,8 @@ namespace DAL.Repositories
             if (await _db.Users.CountAsync(u => u.Id == item.Id) == 0)
                 return;
 
-            _db.Users.Update(item);
+            _db.Remove(await _db.Users.FirstAsync(u => u.Id == item.Id));
+            await _db.AddAsync(item);
         }
 
         public async Task Delete(Guid id)
@@ -53,6 +54,13 @@ namespace DAL.Repositories
         public async Task Save()
         {
             await _db.SaveChangesAsync();
+        }
+
+        public async Task<User> GetByLoginPassword(User item)
+        {
+
+            return await _db.Users.FirstOrDefaultAsync(u =>
+                string.Equals(u.Login, item.Login) && string.Equals(u.Password, item.Password));
         }
     }
 }

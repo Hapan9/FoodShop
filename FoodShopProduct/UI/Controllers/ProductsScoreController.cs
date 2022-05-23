@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BLL.Dto;
 using BLL.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
@@ -46,6 +47,7 @@ namespace UI.Controllers
             }
         }
 
+        [CustomAuthorize]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] ProductScoreDto item)
         {
@@ -60,6 +62,7 @@ namespace UI.Controllers
             }
         }
 
+        [CustomAuthorize]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] ProductScoreDto item)
         {
@@ -74,6 +77,7 @@ namespace UI.Controllers
             }
         }
 
+        [CustomAuthorize]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {

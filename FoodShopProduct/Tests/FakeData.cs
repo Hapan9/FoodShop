@@ -13,6 +13,7 @@ namespace Tests
 
             Products = Fixture.Build<Product>()
                 .Without(p => p.ProductInfo)
+                .Without(p => p.ProductScores)
                 .CreateMany(10)
                 .ToList();
 

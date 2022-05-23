@@ -4,12 +4,15 @@ using BLL.Interfaces;
 using DAL;
 using DAL.Interfaces;
 using DAL.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 namespace UI
@@ -31,7 +34,42 @@ namespace UI
             #region swagger
 
             services.AddControllers();
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "UI", Version = "v1"}); });
+            services
+                .AddSwaggerGen(swagger =>
+                {
+                    //This is to generate the Default UI of Swagger Documentation  
+                    swagger.SwaggerDoc("v1", new OpenApiInfo
+                    {
+                        Version = "v1",
+                        Title = "Forum",
+                        Description = "InternetShop Auth"
+                    });
+                    // To Enable authorization using Swagger (JWT)  
+                    swagger.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                    {
+                        Name = "Authorization",
+                        Type = SecuritySchemeType.ApiKey,
+                        Scheme = "Bearer",
+                        BearerFormat = "JWT",
+                        In = ParameterLocation.Header,
+                        Description =
+                            "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\""
+                    });
+                    swagger.AddSecurityRequirement(new OpenApiSecurityRequirement
+                    {
+                        {
+                            new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = "Bearer"
+                                }
+                            },
+                            new string[] { }
+                        }
+                    });
+                });
 
             #endregion
 
@@ -43,8 +81,23 @@ namespace UI
             services.AddTransient<IProductInfoService, ProductInfoService>();
             services.AddTransient<IProductScoreRepository, ProductScoreRepository>();
             services.AddTransient<IProductScoreService, ProductScoreService>();
+            services.AddTransient<IAuthService, AuthService>();
+
 
             AddDb(services);
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateLifetime = false,
+                        ValidateIssuerSigningKey = false
+                    };
+                });
         }
 
         private void AddDb(IServiceCollection services)
@@ -77,9 +130,23 @@ namespace UI
                 .SetIsOriginAllowed(origin => true) // allow any origin
                 .AllowCredentials()); // allow credentials
 
-            app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseAuthentication();
+
+            app.UseMiddleware<JwtMiddleware>();
+
+
+            app.UseEndpoints(endpoints =>
+            {
+                if (!env.IsProduction())
+                {
+                    endpoints.MapControllers().WithMetadata(new CustomAllowAnonymousAttribute());
+                }
+                else
+                {
+                    endpoints.MapControllers();
+                }
+            });
         }
     }
 }

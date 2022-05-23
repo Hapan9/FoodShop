@@ -26,7 +26,7 @@ namespace Tests.UnitTests.ControllersTests
             await _productsController.Get(It.IsAny<Guid>());
 
             //Assert
-            _productServiceMock.Verify(s => s.Get(It.IsAny<Guid>()));
+            _productServiceMock.Verify(s => s.GetWithScore(It.IsAny<Guid>()));
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace Tests.UnitTests.ControllersTests
             await _productsController.GetAll();
 
             //Assert
-            _productServiceMock.Verify(s => s.GetAll());
+            _productServiceMock.Verify(s => s.GetAllWithScore());
         }
 
         [Fact]

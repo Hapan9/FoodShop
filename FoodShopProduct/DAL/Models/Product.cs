@@ -11,7 +11,9 @@ namespace DAL.Models
         public string Photo { get; set; }
         public string Description { get; set; }
         public int? Score { get; set; }
+        
         public ProductInfo ProductInfo { get; set; }
+
         public IEnumerable<ProductScore> ProductScores { get; set; }
     }
 }

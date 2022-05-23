@@ -26,7 +26,9 @@ namespace Tests.UnitTests.ServicesTests
             _productRepositoryMock.Setup(r => r.Get(It.IsAny<Guid>()))
                 .ReturnsAsync(fakeData.Products.First());
 
-            _productService = new ProductService(_productRepositoryMock.Object, mapperMock.Object);
+            var scoreServiceMock = new Mock<IProductScoreService>();
+
+            _productService = new ProductService(_productRepositoryMock.Object, mapperMock.Object, scoreServiceMock.Object);
         }
 
         [Fact]

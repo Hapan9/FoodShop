@@ -5,13 +5,17 @@ using BLL.Interfaces;
 using DAL;
 using DAL.Interfaces;
 using DAL.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using IAuthorizationService = BLL.Interfaces.IAuthorizationService;
 
 namespace UI
 {
@@ -36,8 +40,11 @@ namespace UI
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserScoreService, UserScoreService>();
             services.AddSingleton(_ => AutoMapperProfile.InitializeAutoMapper().CreateMapper());
+            services.AddTransient<IAuthorizationService, AuthorizationService>();
 
             AddDb(services);
+
+            AddAuth(services);
         }
 
         private void AddDb(IServiceCollection services)
@@ -49,6 +56,27 @@ namespace UI
                 services.AddDbContext<UserContext>(options =>
                     options.UseSqlServer(
                         Configuration.GetConnectionString("DefaultConnection")));
+        }
+
+        public void AddAuth(IServiceCollection services)
+        {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidIssuer = AuthOptions.Issuer,
+
+                        ValidateAudience = true,
+                        ValidAudience = AuthOptions.Audience,
+                        ValidateLifetime = true,
+
+                        IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+                        ValidateIssuerSigningKey = true
+                    };
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -70,9 +98,22 @@ namespace UI
                 .SetIsOriginAllowed(_ => true)
                 .AllowCredentials());
 
-            app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseAuthentication();
+            app.UseAuthorization();
+            
+
+            app.UseEndpoints(endpoints =>
+            {
+                if (!env.IsProduction())
+                {
+                    endpoints.MapControllers().WithMetadata(new AllowAnonymousAttribute());
+                }
+                else
+                {
+                    endpoints.MapControllers();
+                }
+            });
         }
     }
 }

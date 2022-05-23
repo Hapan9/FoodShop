@@ -81,11 +81,16 @@ namespace BLL.Implementation
             var score = 0f;
             var productScores = (await _productScoreService.GetAll(id)).ToList();
             var userIds = productScores.Select(ps => ps.UserId).Distinct().ToList();
-            var scores = (await GetScores(userIds)).ToList();
+            var scores = await GetScores(userIds);
+            if (scores == null)
+            {
+                return productWithScore;
+            }
+
             productWithScore.ProductScores = null;
 
 
-            for (int i = 0; i < userIds.Count(); i++)
+            for (var i = 0; i < userIds.Count(); i++)
             {
                 score += productScores.Where(ps => ps.UserId == userIds[i]).Select(ps => (int)ps.Score * 25).Sum() * scores[i] / 100;
             }
@@ -100,17 +105,22 @@ namespace BLL.Implementation
         public async Task<IEnumerable<Product>> GetAllWithScore()
         {
             var productsWithScore = (await _productRepository.GetAll()).ToList();
-
+            
             foreach (var productWithScore in productsWithScore)
             {
                 var score = 0f;
                 var productScores = (await _productScoreService.GetAll(productWithScore.Id)).ToList();
                 var userIds = productScores.Select(ps => ps.UserId).Distinct().ToList();
-                var scores = (await GetScores(userIds)).ToList();
+                var scores = await GetScores(userIds);
+                if (scores == null)
+                {
+                    continue;
+                }
                 productWithScore.ProductScores = null;
+                if(scores.Count == 0)
+                    continue;
 
-
-                for (int i = 0; i < userIds.Count(); i++)
+                for (var i = 0; i < userIds.Count(); i++)
                 {
                     score += productScores.Where(ps => ps.UserId == userIds[i]).Select(ps => ((int)ps.Score + 1) * 20).Sum() * scores[i] / 100;
                 }
@@ -123,12 +133,25 @@ namespace BLL.Implementation
             return productsWithScore;
         }
 
-        private async Task<IEnumerable<float>> GetScores(IEnumerable<Guid> ids)
+        private async Task<List<float>> GetScores(IEnumerable<Guid> ids)
         {
-            var httpContent = new StringContent(JsonConvert.SerializeObject(ids), Encoding.UTF8, "application/json");
-            var response = await _client.PostAsync("https://localhost:44303/api/UserScore", httpContent);
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<IEnumerable<float>>();
+            try
+            {
+
+                var httpContent = new StringContent(JsonConvert.SerializeObject(ids), Encoding.UTF8, "application/json");
+                var response = await _client.PostAsync("https://localhost:44303/api/UserScore", httpContent);
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    return await response.Content.ReadFromJsonAsync<List<float>>();
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }

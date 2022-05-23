@@ -92,7 +92,6 @@ C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Micro
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -126,3 +125,4 @@ C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\obj\Debug\net5.0\UI.ge
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\obj\Debug\net5.0\UI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\obj\Debug\net5.0\UI.csproj.AssemblyReference.cache
 C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Hapan9\Documents\GitHub\FoodShop\FoodShopAuth\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
